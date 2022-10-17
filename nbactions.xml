@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+       <action>
+            <actionName>run</actionName>
+            <goals>
+                <goal>jetty:stop</goal>
+                <goal>jetty:run</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <goals>
+                <goal>jetty:stop</goal>
+                <goal>jetty:run</goal>
+                
+            </goals>
+            <properties>                
+                <jpda.listen>maven</jpda.listen>                
+                <netbeans.deploy.debugmode>true</netbeans.deploy.debugmode>                
+                <com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump>true</com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump>
+            </properties>
+        </action>
+        <action>
+            <actionName>test</actionName>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>run</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <goals>
+                <goal>package</goal>
+            </goals>
+            <properties>
+                
+                <netbeans.deploy.clientUrlPart>mvn tomcat:run</netbeans.deploy.clientUrlPart>
+                <netbeans.deploy.profilemode>true</netbeans.deploy.profilemode>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-deploy</actionName>
+            <displayName>deploy</displayName>
+            <goals>
+                <goal>package</goal>
+                <goal>tomcat7:redeploy</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-tomcat run</actionName>
+            <displayName>tomcat run</displayName>
+            <goals>
+                <goal>package</goal>
+            </goals>
+            <properties>
+                <netbeans.deploy>true</netbeans.deploy>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-tomcat debug</actionName>
+            <displayName>tomcat debug</displayName>
+            <goals>
+                <goal>package</goal>
+            </goals>
+            <properties>
+                <netbeans.deploy>true</netbeans.deploy>
+                <netbeans.deploy.clientUrlPart>${webpagePath}</netbeans.deploy.clientUrlPart>
+                <netbeans.deploy.debugmode>true</netbeans.deploy.debugmode>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-delpoy hrp_prod</actionName>
+            <displayName>delpoy hrp_prod</displayName>
+            <goals>
+                <goal>package</goal>
+                <goal>tomcat6:redeploy</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-deploy 91.245</actionName>
+            <displayName>deploy 91.245</displayName>
+            <goals>
+                <goal>package</goal>
+                <goal>tomcat7:redeploy</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-liqui</actionName>
+            <displayName>liqui</displayName>
+            <goals>
+                <goal>liquibase:diff</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-SOAP client gen</actionName>
+            <displayName>SOAP client gen</displayName>
+            <goals>
+                <goal>package</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-dependency:tree</actionName>
+            <displayName>dependency:tree</displayName>
+            <goals>
+                <goal>dependency:tree</goal>
+            </goals>
+        </action>
+    </actions>
